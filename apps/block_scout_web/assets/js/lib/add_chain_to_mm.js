@@ -23,15 +23,15 @@ export async function addChainToMM ({ btn }) {
       await window.ethereum.request({
         method: 'wallet_addEthereumChain',
         params: [{
-          chainId: chainIDFromInstance,
-          chainName: subNetwork,
+          chainId: `0x${(816).toString(16)}`,
+          chainName: 'Omega Testnet',
           nativeCurrency: {
-            name: coinName,
-            symbol: coinName,
+            name: 'OMN',
+            symbol: 'OMN',
             decimals: 18
           },
-          rpcUrls: [jsonRPC],
-          blockExplorerUrls: [blockscoutURL]
+          rpcUrls: ['https://test-rpc.omtch.com'],
+          blockExplorerUrls: ['https://test-explorer.omtch.com/']
         }]
       })
     } else {

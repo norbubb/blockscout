@@ -3,7 +3,8 @@ $dashboard-banner-gradient-end: lighten(
   $dashboard-banner-gradient-start,
   5%
 ) !default;
-$dashboard-banner-network-plain-container-background-color: lighten($dashboard-banner-gradient-end, 5%) !default;
+//$dashboard-banner-network-plain-container-background-color: lighten($dashboard-banner-gradient-end, 5%) !default;
+$dashboard-banner-network-plain-container-background-color: #FFBB53;
 $dashboard-line-color-price: lighten($dashboard-banner-gradient-end, 5%) !default;
 $dashboard-line-color-price-dark-theme: lighten($dashboard-banner-gradient-end, 5%) !default;
 $dashboard-line-color-market: $secondary !default;
@@ -11,7 +12,7 @@ $dashboard-line-color-market-dark-theme: $secondary !default;
 $dashboard-line-color-transactions: $warning !default;
 $dashboard-line-color-transactions-dark-theme: $warning !default;
 $dashboard-stats-item-label-color: #fff !default;
-$dashboard-stats-item-value-color: rgba(#fff, 0.8) !default;
+$dashboard-stats-item-value-color: #252631;
 $dashboard-banner-chart-legend-label-color: #fff !default;
 $dashboard-banner-chart-legend-value-color: $dashboard-stats-item-value-color !default;
 $dashboard-stats-item-border-color: $primary !default;
@@ -32,6 +33,8 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   @include media-breakpoint-down(md) {
       height: auto;
   }
+  //background: #e9a948 !important;
+  //border: none !important;
 }
 
 .dashboard-banner {
@@ -151,7 +154,8 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
 
     &.tx-per-day {
       &::before {
-        background-color: $dashboard-line-color-transactions;
+        //background-color: $dashboard-line-color-transactions;
+        background-color: rgb(90, 87, 115);
       }
     }
   }
@@ -175,7 +179,8 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   }
 
   .dashboard-banner-chart-legend-value {
-    color: $dashboard-banner-chart-legend-value-color;
+    //color: $dashboard-banner-chart-legend-value-color;
+    color: #252631;
     display: block;
     font-size: 12px;
     font-weight: normal;
@@ -188,6 +193,8 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
 
   .dashboard-banner-chart-legend-value-container {
     white-space: nowrap;
+    color: #252631!important;
+    font-weight: 500!important;
   }
 
   .gas-price-icon {
@@ -282,6 +289,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   }
 
   .dashboard-banner-network-stats-value {
+    color: black !important;
     @media (max-width: 374px) {
       font-size: 0.9rem;
     }

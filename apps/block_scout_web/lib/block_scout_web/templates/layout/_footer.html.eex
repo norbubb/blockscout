@@ -5,7 +5,7 @@
       <div class="col-md-12">
         <%= link to: webapp_url(@conn), class: "footer-brand" do %>
           <%= if logo_footer() do %>
-            <img class="footer-logo" src="<%= static_path(@conn, logo_footer()) %>" alt="<%= subnetwork_title() %>" />
+            <img class="footer-logo" src="<%= static_path(@conn, "/images/footer_logo.svg") %>" alt="<%= subnetwork_title() %>" />
           <% end %>
           <%= if logo_text() do %>
             <span class="logo-text in-footer <%= unless logo_footer(), do: "no-logo" %>"> <%= logo_text() %> </span>
@@ -18,27 +18,26 @@
     <% col_size = if Enum.empty?(other_explorers), do: 3, else: 2 %>
 
     <div class="row">
-      <div class="col-xs-12 col-lg-3">
-        <p class="footer-info-text"><%= gettext("Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.") %></p>
+      <div class="col-xs-12 col-lg-4">
+        <p class="footer-info-text"><%= gettext("Omegascan is an intuitive Blockchain Explorer for Omega Network, facilitating effective tracking and analysis of transactions within the Omega Network ecosystem.") %></p>
         <div class="footer-social-icons">
-          <a href="<%= Application.get_env(:block_scout_web, :footer)[:github_link] %>" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Github") %>'>
-            <div class="footer-social-icon-container fontawesome-icon github"></div>
+          <a href="https://omtch.com" rel="noreferrer" target="_blank" class="footer-social-icon" title='website'>
+            <div class="footer-social-icon-container fontawesome-icon website"></div>
           </a>
-          <a href="https://www.twitter.com/blockscoutcom/" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Twitter") %>'>
+          <a href="https://twitter.com/omcoreteam" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Twitter") %>'>
             <div class="footer-social-icon-container fontawesome-icon twitter"></div>
           </a>
-          <a href="https://t.me/poa_network" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Telegram") %>'>
+          <a href="https://t.me/OmegaNetworkTeam" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Telegram") %>'>
             <div class="footer-social-icon-container fontawesome-icon telegram"></div>
           </a>
         </div>
       </div>
 
       <div class="col-xs-12 col-md-4 col-lg-<%= col_size %> footer-list">
-        <h3>BlockScout</h3>
+        <h3>OmegaScan</h3>
         <ul>
-          <li><a href="<%= issue_link(@conn) %>" rel="noreferrer" class="footer-link" target="_blank"><%= gettext("Submit an Issue") %></a></li>
-          <li><a href="<%= Application.get_env(:block_scout_web, :footer)[:github_link] %>" rel="noreferrer" class="footer-link"><%= gettext("Contribute") %></a></li>
-          <li><a href="<%= Application.get_env(:block_scout_web, :footer)[:chat_link] %>" rel="noreferrer" class="footer-link"><%= gettext("Chat (#blockscout)") %></a></li>
+          <li><a href="https://t.me/OmegaNetworkTeam" rel="noreferrer" class="footer-link" target="_blank"><%= gettext("Submit an Issue") %></a></li>
+          <li><a href="https://twitter.com/omcoreteam" rel="noreferrer" class="footer-link" target="_blank">Join community</a></li>
           <%= if Application.get_env(:block_scout_web, :footer)[:enable_forum_link] do %>
             <li><a href="<%= Application.get_env(:block_scout_web, :footer)[:forum_link] %>" rel="noreferrer" class="footer-link"><%= gettext("Forum") %></a></li>
           <% end %>
@@ -46,17 +45,6 @@
         </ul>
       </div>
       <% main_nets = main_nets(other_networks()) %>
-
-      <%= unless Enum.empty?(main_nets) do %>
-        <div class="col-xs-12 col-md-4 col-lg-<%= col_size %> footer-list">
-          <h3><%= gettext("Main Networks") %></h3>
-          <ul>
-            <%= for %{title: title, url: url} <- main_nets do %>
-              <li><a href="<%= url %>" rel="norefferer" class="footer-link"> <%= title %> </a></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
 
       <% test_nets = test_nets(other_networks()) %>
 
@@ -88,7 +76,7 @@
     <%= unless ignore_version?(version) do %>
       <% release_link = release_link(version) %>
       <div>
-        <%= gettext("Version") %>: <%= release_link %>
+        <%= gettext("Version") %>: <span class='version'>Testnet v2.3</span>
       </div>
     <% end %>
   </div>

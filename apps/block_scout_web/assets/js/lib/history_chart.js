@@ -30,7 +30,7 @@ function getPriceChartColor () {
   if ((isDarkMode())) {
     return sassVariables.dashboardLineColorPriceDarkTheme
   } else {
-    return sassVariables.dashboardLineColorPrice
+    return '#595771'
   }
 }
 
@@ -122,6 +122,7 @@ const config = {
       title: {
         display: true,
         color: sassVariables.dashboardBannerChartAxisFontColor
+        // color: '#252631'
       },
       tooltip: {
         mode: 'index',
