@@ -140,15 +140,7 @@ defmodule Indexer.Block.Catchup.MissingRangesCollector do
       MissingBlockRange.save_batch(batch)
       {:noreply, %{state | min_fetched_block_number: new_min_number}}
     else
-      Process.send_after(self(), :update_past, @past_check_interval * 100)
-      {:noreply, %{state | min_fetched_block_number: reset_min_fetched_block_number(state.max_fetched_block_number)}}
-    end
-  end
-
-  defp reset_min_fetched_block_number(max_fetched_block_number) do
-    case MissingBlockRange.fetch_min_max() do
-      %{min: nil} -> max_fetched_block_number
-      %{min: min} -> min
+      {:noreply, state}
     end
   end
 
@@ -202,11 +194,8 @@ defmodule Indexer.Block.Catchup.MissingRangesCollector do
     case BlockNumber.get_max() do
       0 ->
         json_rpc_named_arguments = Application.get_env(:indexer, :json_rpc_named_arguments)
-
-        case EthereumJSONRPC.fetch_block_number_by_tag("latest", json_rpc_named_arguments) do
-          {:ok, number} -> number
-          _ -> 0
-        end
+        {:ok, number} = EthereumJSONRPC.fetch_block_number_by_tag("latest", json_rpc_named_arguments)
+        number
 
       number ->
         number
