@@ -76,7 +76,7 @@
     <%= unless ignore_version?(version) do %>
       <% release_link = release_link(version) %>
       <div>
-        <%= gettext("Version") %>: <span class='version'>Testnet v2.3</span>
+        <%= gettext("Version") %>: <span class='version'>Mainnet v1.0</span>
       </div>
     <% end %>
   </div>
