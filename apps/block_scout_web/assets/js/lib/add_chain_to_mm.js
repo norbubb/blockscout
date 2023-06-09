@@ -24,7 +24,7 @@ export async function addChainToMM ({ btn }) {
         method: 'wallet_addEthereumChain',
         params: [{
           chainId: `0x${(408).toString(16)}`,
-          chainName: 'Omega Testnet',
+          chainName: 'Omega Mainnet',
           nativeCurrency: {
             name: 'OMN',
             symbol: 'OMN',
